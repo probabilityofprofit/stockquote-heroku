@@ -28,7 +28,6 @@ from holdings_tab_utils import get_position_weightings, display_position_info, g
 from analysis_tab_utils import get_earnings_trend_data, display_earnings_trend_data
 from option_tab_utils import display_option_chain
 from stock_tickers import stock_options
-from st_keyup import st_keyup
 
 def get_stock_info(symbol):
     stock = yf.Ticker(symbol)
@@ -731,7 +730,7 @@ def main():
                 # Percent Change of symbol
                 bgcolor = "green" if percentage_change >= 0 else "red"
                 fig.add_annotation(
-                    text=f'({selected_option}) {symbol} {stock_data['Close'].iloc[-1]:.2f} {percentage_change:.2f}%',
+                    text=f'({selected_option}) {symbol} {stock_data["Close"].iloc[-1]:.2f} {percentage_change:.2f}%',
                     xref='paper', yref='paper',
                     x=0.00, y=1.20,
                     showarrow=False,
